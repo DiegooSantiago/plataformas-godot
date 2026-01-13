@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://7ostr3ace6c1"]
+
+[ext_resource type="Script" uid="uid://b4mv4be57ksqw" path="res://scripts/level1.gd" id="1_bfxgj"]
+[ext_resource type="PackedScene" uid="uid://bqclb2k1o21d2" path="res://scenes/player/player.tscn" id="1_x6ivy"]
+[ext_resource type="PackedScene" uid="uid://crbs0di3aboax" path="res://scenes/objects/platform.tscn" id="2_4tcl0"]
+[ext_resource type="PackedScene" uid="uid://do64hlhm40u7u" path="res://scenes/objects/coin.tscn" id="3_dd0lh"]
+[ext_resource type="PackedScene" uid="uid://ofjfe1dds80l" path="res://scenes/objects/moving_platform.tscn" id="5_dywbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
+size = Vector2(1662.5, 20)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_bfxgj")
+
+[node name="Player" parent="." instance=ExtResource("1_x6ivy")]
+position = Vector2(-8, 451)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(831.75, 638)
+shape = SubResource("RectangleShape2D_hbghi")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = 1.0
+offset_top = 628.0
+offset_right = 1662.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+
+[node name="Platform" parent="." instance=ExtResource("2_4tcl0")]
+position = Vector2(438, 514)
+
+[node name="Platform2" parent="." instance=ExtResource("2_4tcl0")]
+position = Vector2(695, 419)
+
+[node name="Coin" parent="." instance=ExtResource("3_dd0lh")]
+position = Vector2(487, 427)
+
+[node name="Coin2" parent="." instance=ExtResource("3_dd0lh")]
+position = Vector2(731, 328)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CoinLabel" type="Label" parent="HUD"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 109.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 27
+text = "Monedas: 0"
+
+[node name="LivesLabel" type="Label" parent="HUD"]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 80.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 27
+text = "Vidas: 3"
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+position = Vector2(-6, 448)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("5_dywbp")]
+position = Vector2(934, 512)
+speed = 50.0
