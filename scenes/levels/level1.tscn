@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://7ostr3ace6c1"]
+[gd_scene load_steps=8 format=3 uid="uid://7ostr3ace6c1"]
 
 [ext_resource type="Script" uid="uid://b4mv4be57ksqw" path="res://scripts/level1.gd" id="1_bfxgj"]
 [ext_resource type="PackedScene" uid="uid://bqclb2k1o21d2" path="res://scenes/player/player.tscn" id="1_x6ivy"]
 [ext_resource type="PackedScene" uid="uid://crbs0di3aboax" path="res://scenes/objects/platform.tscn" id="2_4tcl0"]
 [ext_resource type="PackedScene" uid="uid://do64hlhm40u7u" path="res://scenes/objects/coin.tscn" id="3_dd0lh"]
+[ext_resource type="Script" uid="uid://cf765t0o8jyp5" path="res://scripts/hud.gd" id="5_1seuy"]
 [ext_resource type="PackedScene" uid="uid://ofjfe1dds80l" path="res://scenes/objects/moving_platform.tscn" id="5_dywbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
@@ -41,6 +42,7 @@ position = Vector2(487, 427)
 position = Vector2(731, 328)
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_1seuy")
 
 [node name="CoinLabel" type="Label" parent="HUD"]
 offset_left = 20.0
